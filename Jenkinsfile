@@ -7,7 +7,7 @@ pipeline {
           steps {
 
             sh "chmod +x ./prework.sh"
-            sh "./prework"
+            sh "./prework.sh"
             withCredentials([usernamePassword(credentialsId: 'docker-io-login', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
               sh "echo $PASS | docker login --username $USER --password-stdin"
             }
